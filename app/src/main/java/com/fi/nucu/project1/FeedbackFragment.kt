@@ -102,6 +102,7 @@ class FeedbackFragment : Fragment() {
 
                     val request = Request.Builder().url(url).build()
                     val client = OkHttpClient()
+                    Toast.makeText(getActivity(), "You have sent successfully!!", Toast.LENGTH_SHORT).show()
                     client.newCall(request).enqueue(object: Callback {
                         override fun onFailure(call: Call, e: IOException) {
 
