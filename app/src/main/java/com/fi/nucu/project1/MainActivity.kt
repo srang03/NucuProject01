@@ -11,24 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_support.*
 
 class MainActivity : AppCompatActivity() {
-    object Person {
-        var customerId: Int = -1
-        var customerName: String =""
-        var address: String =""
-        var scanQRcode: String= ""
-        var customerEmail: String =""
-        var customerphone: String = ""
 
-        fun setPerson(id: Int, name: String, address: String){
-            this.customerId = id
-            this.customerName = name
-            this.address = address
-        }
-
-
-    }
-
-    var Customer = Person
 
     lateinit var homeFragment: HomeFragment
     lateinit var feedbackFragment: FeedbackFragment
