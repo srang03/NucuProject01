@@ -1,10 +1,8 @@
 package com.fi.nucu.project1.com.fi.nucu.project1.customer
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
+@Dao
 interface PersonDao {
     @Query("SELECT * FROM Person")
     fun getAll(): List<Person>

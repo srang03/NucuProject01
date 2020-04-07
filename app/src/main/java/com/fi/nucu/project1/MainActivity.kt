@@ -2,9 +2,11 @@ package com.fi.nucu.project1
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
+import com.fi.nucu.project1.com.fi.nucu.project1.customer.Customer
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,6 +23,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.d("TAG", "${Customer.customerId}")
+        Log.d("TAG", "${Customer.customerName}")
+        Log.d("TAG", "${Customer.customerEmail}")
+
+        println("${Customer.customerId}")
+        println("${Customer.customerName}")
+        println("${Customer.customerEmail}")
+
+        Toast.makeText(this,"${Customer.customerId}",Toast.LENGTH_LONG).show()
 
         val bottomNavigation: BottomNavigationView = btm_nav
 
@@ -90,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "The data is empty", Toast.LENGTH_SHORT).show()
             } else {
 
-                Customer.scanQRcode = result.contents.toString()
+//                Customer.scanQRcode = result.contents.toString()
                 supportFragment.scanResultTextView.setText(result.contents.toString())
                 Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show()
             }

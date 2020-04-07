@@ -4,11 +4,16 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class Person(@PrimaryKey
-                 var customerId: Int = -1,
-var customerName: String ="",
-    var address: String ="",
-    var scanQRcode: String= "",
-    var customerEmail: String ="",
+data class Person (
+    var customerId: Int = -1,
+    var customerName: String?,
+    var address: String?)
+{
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
+    var scanQRcode: String= ""
+    var customerEmail: String =""
     var customerphone: String = ""
-)
+}
+
+
+
