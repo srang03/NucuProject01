@@ -172,6 +172,39 @@
                     android:text="" />
 
             </LinearLayout>
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:gravity="center"
+        android:text="Nucu tietosuojaseloste"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:padding="10dp"
+                    android:id="@+id/phoneCall"
+                    android:background="@drawable/border_layout"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:src="@drawable/ic_phone"/>
+                <ImageView
+                    android:padding="10dp"
+                    android:id="@+id/messageSend"
+                    android:background="@drawable/border_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:src="@drawable/ic_email"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

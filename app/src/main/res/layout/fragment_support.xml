@@ -81,6 +81,7 @@
                         android:layout_height="20dp"
                         android:background="@drawable/qrcamera_ic" />
                 </LinearLayout>
+
                 <TextView
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"

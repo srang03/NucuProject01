@@ -1,5 +1,6 @@
 package com.fi.nucu.project1
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         println("${Customer.customerName}")
         println("${Customer.customerEmail}")
 
-        Toast.makeText(this,"${Customer.customerId}",Toast.LENGTH_LONG).show()
+        Toast.makeText(this,"Welcome to Nucu Service",Toast.LENGTH_LONG).show()
 
         val bottomNavigation: BottomNavigationView = btm_nav
 
@@ -91,23 +92,21 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+            if (result != null) {
+                if (result.contents == null) {
+                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
+                    Customer.scanQRcode = result.contents.toString()
+                    scanResultTextView.setText(result.contents)
 
-        if (result != null){
-            if(result.contents == null){ //the result data is null or empty then
-                Toast.makeText(this, "The data is empty", Toast.LENGTH_SHORT).show()
+                }
             } else {
-
-//                Customer.scanQRcode = result.contents.toString()
-                supportFragment.scanResultTextView.setText(result.contents.toString())
-                Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show()
+                super.onActivityResult(requestCode, resultCode, data)
             }
-
-        } else{ // the camera will not close if the result is still null
-            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 
