@@ -27,8 +27,8 @@ import java.io.IOException
 
 class StartActivity : AppCompatActivity() {
 
-    private val apiKey = "imHxYZFZKvzt-PwUwPVBuMWEuUqYr-a3bea8a1-ec9f-4f64-8b26-dbd66a8a2d21"
-    private val accessKey = "9tXt9OT3Qg0X6im7"
+    private val apiKey = "" // secret
+    private val accessKey = "" // secret
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
