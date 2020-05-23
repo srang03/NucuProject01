@@ -35,16 +35,25 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
     
   3. StartActivity
     1. Use room library to save local database
-    ```c
-            var db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "database-name"
-        ).allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
-            .build()
-    ```
+    
+          ```c
+              var db = Room.databaseBuilder(
+              applicationContext,
+              AppDatabase::class.java, "database-name"
+          ).allowMainThreadQueries()
+              .fallbackToDestructiveMigration()
+              .build()
+      ```
 
+    
     2. First time using the application
       Create the content banner and let the user put their customerNumber
+    3. Already used the application before
+      Bring customerNumber from database and save in the object
+    
+
+
+
+ 
     
     
