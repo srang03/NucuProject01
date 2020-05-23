@@ -25,17 +25,18 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
 
 
 ### Technical part of the project
-  1. Project Plan
+1. Project Plan
   We had meeting with Nucu company every week and after the meeting we had our own team meeting reviewing about next weekly plan. We prepared backlog to check and review our plan. At first we separate each task by our roll, but we realized that we had only one developer since our teammates are 3 people. So we decided to support developer’s task together so that we can proceed the project smoothly. 
  We had to concentrate on API Apptivo, Google form and QR Code to use in the application activities (intro, start, main) and fragments (home, support, feedback, setting). We planned to work on each activities and fragments for one week. 
   
-  2. IntroActivity
-      1. Call handler method and execute runnable method after certain amount of time
-      2. Use onResume() and onPause() method to show the activity
+2. IntroActivity
+     1. Call handler method and execute runnable method after certain amount of time
+     2. Use onResume() and onPause() method to show the activity
     
-  3. StartActivity
-      ###### Use room library to save local database
-            ```c
+3. StartActivity
+###### Use room library to save local database
+     
+     
             var db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java, "database-name"
@@ -43,34 +44,38 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
             .fallbackToDestructiveMigration()
             .build()
 
-          ```
           
           
-      ###### First time using the application
-          ```c
+###### First time using the application
+      
+      
               val pagerAdapter = PagerAdapter(supportFragmentManager)
               val pager: ViewPager = findViewById<ViewPager>(R.id.viewPager)
               pager.adapter = pagerAdapter
-          ```
+     
           
           
-      ###### Already used the application before
-          ```c
+###### Already used the application before
+      
+      ```
             if(db.personDao().getAll().isNotEmpty()) {
               Customer.customerId = db.personDao().getAll().get(0).customerId
               Customer.customerName = db.personDao().getAll().get(0).customerName.toString()
               Customer.address = db.personDao().getAll().get(0).address.toString()
               val intent = Intent(applicationContext, MainActivity::class.java)
               startActivity(intent)
-        }
-          ```
+            }
+      ```
           
           
-      ###### Check the exception of  customerNumber text
+###### Check the exception of  customerNumber text
+             Wrong(blank or wrong range of number) -> Toast message   
+             Correct -> Use OkHttp library to bring user’s information from Apptivo API
       
       
-      ###### Execute thread communication from Android system by using handler and looper
-      ###### Execute DialogView and AlertDialog
+      
+###### Execute thread communication from Android system by using handler and looper
+###### Execute DialogView and AlertDialog
       
     
  
