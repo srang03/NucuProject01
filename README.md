@@ -56,8 +56,7 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
           
           
 ###### Already used the application before
-      
-      ```
+```
             if(db.personDao().getAll().isNotEmpty()) {
               Customer.customerId = db.personDao().getAll().get(0).customerId
               Customer.customerName = db.personDao().getAll().get(0).customerName.toString()
@@ -65,7 +64,7 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
               val intent = Intent(applicationContext, MainActivity::class.java)
               startActivity(intent)
             }
-      ```
+```   
           
           
 ###### Check the exception of  customerNumber text
