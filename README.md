@@ -113,7 +113,8 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
 
           handler.post {
                   val mAlertDialog = mBuilder.show()
-                  mDialogView.centerTextView.setText("Your name : ${Customer.customerName} \n Your Customer                                               number : ${customerNumber}")
+                  mDialogView.centerTextView.setText("Your name : ${Customer.customerName} \n Your Customer
+                  number : ${customerNumber}")
                   mDialogView.saveButton.setOnClickListener {
 
                        mAlertDialog.dismiss()
@@ -134,8 +135,27 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
         * cancel
             Execute mAlertDialog.dismiss() method
       
-    
- 
+      
+4. MainActivity  
+  Make 4 fragments and convert each fragment by using navigation button 
+```
+        val bottomNavigation: BottomNavigationView = btm_nav
+
+        homeFragment = HomeFragment()
+
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.frame_layout, homeFragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            .commit()
+```
+
+5. HomeFragment
+6. SupportFragment
+7. FeedbackFragment
+8. SettingView
+
+### Conclusion
         
  
     
