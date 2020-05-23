@@ -30,30 +30,11 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
  We had to concentrate on API Apptivo, Google form and QR Code to use in the application activities (intro, start, main) and fragments (home, support, feedback, setting). We planned to work on each activities and fragments for one week. 
   
   2. IntroActivity
-    1. Call handler method and execute runnable method after certain amount of time
-    2. Use onResume() and onPause() method to show the activity
+      1. Call handler method and execute runnable method after certain amount of time
+      2. Use onResume() and onPause() method to show the activity
     
   3. StartActivity
-    1) Use room library to save local database
-    
-    ```c
-        var db = Room.databaseBuilder(
-        applicationContext,
-        AppDatabase::class.java, "database-name"
-        ).allowMainThreadQueries()
-        .fallbackToDestructiveMigration()
-        .build()
-     ```
-
-    
-    2) First time using the application
-      Create the content banner and let the user put their customerNumber
-    3) Already used the application before
-      Bring customerNumber from database and save in the object
-    
-
-
-
- 
+      1. Use room library to save local database
+  
     
     
