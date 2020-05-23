@@ -220,4 +220,20 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
 ### Conclusion
   During the project, I was able to have many skills such as using Github for cooperation, how to develop Android in Kotlin language not Java, team project development theory such as Scrum, Android network communication, JSON and GSON data format, Thread process in Android, how to use Apptivo API, and DB using Room library. Through understanding Kotlin grammar and studying Android system processes, various functions were developed and coding skills were improved through practice. Dongseo University has been working on many team projects, but I tried to make the best process by searching for and thinking more than then. As a result, our team was able to complete the project within the target time
  
-    
+ 
+ 
+ ### Reference  
+[1] Oh Joon-seok's Android Survival-Coded Cotlin episode (Korean), Hanbit media, 20.01.2019  
+[2] Nucuts FeedBack Details Requirement Document, Nucu  
+[3] Developer API, Apptivo API, https://www.apptivo.com/  
+[4] Image Resource and Articles, Nucu website, https://www.nucu.fi  
+[5] Icons and Desgin, MATERIAL DESIGN, https://material.io/resources/icons  
+
+
+### Attachment
+[1] Backlog       * attached file
+[2] Sprint Review Doucument       * attached file
+[3] Code source in Github : https://github.com/srang03/NucuProject01
+[4] App execution Screen : https://www.youtube.com/watch?v=KO_sn-nP_8g
+[5] Burn-down Chart
+![image](https://user-images.githubusercontent.com/53038387/82721448-254f5500-9cf8-11ea-9be3-d8f00496ddae.png)
