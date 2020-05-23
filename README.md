@@ -150,12 +150,74 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
             .commit()
 ```
 
-5. HomeFragment
-6. SupportFragment
-7. FeedbackFragment
-8. SettingView
 
+5. HomeFragment
+    * Use inflater to create view and put it on the application frame by returning it
+```
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view: View = inflater!!.inflate(R.layout.fragment_home, container, false)
+
+```
+    * Create WebView and show web page in the frame
+```
+         val mWebView = view.webViewID as WebView
+            mWebView.loadUrl("https://nucu.fi/")
+
+            val webSettings = mWebView.settings
+            webSettings.javaScriptEnabled = true
+
+            mWebView.webViewClient = WebViewClient()
+
+            return view
+```
+      
+      
+6. SupportFragment
+    * Available to scan QR Code
+```
+     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            if (resultCode == Activity.RESULT_OK) {
+                val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+                if (result != null) {
+                    if (result.contents == null) {
+                        Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
+                        Customer.scanQRcode = result.contents.toString()
+                        scanResultTextView.setText(result.contents)
+
+                    }
+                } else {
+                    super.onActivityResult(requestCode, resultCode, data)
+                }
+            }
+        }
+```
+
+   * Replace the text
+      Space(blank) from input data can’t be contained in URL
+      Change every space into ‘+’ value so that it is available to send
+   * Send Google Form using OkHttp communication
+    
+    
+7. FeedbackFragment
+    * Check up the exception of CheckBox
+    * Replace the text
+    * Send Google Form using OkHttp communication
+    
+    
+8. SettingView
+    * Print customer object data on the application using handler
+          Data being saved at textView from SettingView
+    * Use ACTION_DIAL for the customer to contact Nucu company easily by phone call
+    * Use ACTION_SEND for the customer can send mail to Nucu company easily
+    
+    
 ### Conclusion
-        
+  During the project, I was able to have many skills such as using Github for cooperation, how to develop Android in Kotlin language not Java, team project development theory such as Scrum, Android network communication, JSON and GSON data format, Thread process in Android, how to use Apptivo API, and DB using Room library. Through understanding Kotlin grammar and studying Android system processes, various functions were developed and coding skills were improved through practice. Dongseo University has been working on many team projects, but I tried to make the best process by searching for and thinking more than then. As a result, our team was able to complete the project within the target time
  
     
