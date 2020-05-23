@@ -35,15 +35,14 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
     
 3. StartActivity
 ###### Use room library to save local database
-     
-     
+```       
             var db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java, "database-name"
           ).allowMainThreadQueries()
             .fallbackToDestructiveMigration()
             .build()
-
+```
           
           
 ###### First time using the application
@@ -68,13 +67,72 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
           
           
 ###### Check the exception of  customerNumber text
-             Wrong(blank or wrong range of number) -> Toast message   
-             Correct -> Use OkHttp library to bring user’s information from Apptivo API
+             * Wrong(blank or wrong range of number) -> Toast message   
+             * Correct -> Use OkHttp library to bring user’s information from Apptivo API
+             
+             * To use customer’s information in Andriod Studio, use object and array to change the form into GSON type
+             
+```             
+                  override fun onResponse(call: Call, response: Response) {
+
+                                        val body = response?.body?.string()
+
+                                        val gson = GsonBuilder().create()
+                                        val jObject = JSONObject(body)
+                                        val jArray = jObject.getJSONArray("data")
+
+                                        val obj = jArray.getJSONObject(0)
+                                        Customer.customerId= obj.getInt("customerId")
+                                        Customer.customerName = obj.getString("customerName")
+                                        val address = obj.getJSONArray("addresses")
+
+                                        val AObject = address.getJSONObject(0)
+                                        val addressCity = AObject.getString("city")
+                                        val addressLine1 = AObject.getString("addressLine1")
+
+                                        val addressPost = AObject.getString("zipCode")
+                                        Customer.address = "${addressPost}, ${addressLine1}, ${addressCity}"
+
+                                        Log.d("Tag", "${Customer.customerId}")
+                                        Log.d("Tag", "${Customer.customerName}")
+                                        Log.d("Tag", "${Customer.address}")
+
+          
       
-      
-      
+```
+
 ###### Execute thread communication from Android system by using handler and looper
+```
+
+          val handler = Handler(Looper.getMainLooper())
+
+          val mDialogView = LayoutInflater.from(this@StartActivity).inflate(R.layout.alert_popup, null)
+          val mBuilder = AlertDialog.Builder(this@StartActivity)
+                         .setView(mDialogView)
+                         .setTitle("Check your Customer Info")
+
+          handler.post {
+                  val mAlertDialog = mBuilder.show()
+                  mDialogView.centerTextView.setText("Your name : ${Customer.customerName} \n Your Customer                                               number : ${customerNumber}")
+                  mDialogView.saveButton.setOnClickListener {
+
+                       mAlertDialog.dismiss()
+
+                       db.personDao().insert(
+                       Person(
+                          Customer.customerId,
+                          Customer.customerName,
+                          Customer.address
+                          )
+                      )
+```
 ###### Execute DialogView and AlertDialog
+    * Let the user check whether their information is correct or not before using the application
+        * save
+            The information is being saved into the database
+            Execute mAlertDialog.dismiss() method
+        * cancel
+            Execute mAlertDialog.dismiss() method
       
     
  
