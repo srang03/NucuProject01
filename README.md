@@ -47,16 +47,16 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
           
           
 ###### First time using the application
-      
+```c
       
               val pagerAdapter = PagerAdapter(supportFragmentManager)
               val pager: ViewPager = findViewById<ViewPager>(R.id.viewPager)
               pager.adapter = pagerAdapter
-     
+```
           
           
 ###### Already used the application before
-```
+```k
             if(db.personDao().getAll().isNotEmpty()) {
               Customer.customerId = db.personDao().getAll().get(0).customerId
               Customer.customerName = db.personDao().getAll().get(0).customerName.toString()
