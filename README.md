@@ -39,7 +39,7 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
                   var db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java, "database-name"
-        ).allowMainThreadQueries()
+          ).allowMainThreadQueries()
             .fallbackToDestructiveMigration()
             .build()
 
