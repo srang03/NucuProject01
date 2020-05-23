@@ -35,7 +35,7 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
     
   3. StartActivity
       ###### Use room library to save local database
-            ```
+            ```c
             var db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java, "database-name"
@@ -47,7 +47,7 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
           
           
       ###### First time using the application
-          ```
+          ```c
               val pagerAdapter = PagerAdapter(supportFragmentManager)
               val pager: ViewPager = findViewById<ViewPager>(R.id.viewPager)
               pager.adapter = pagerAdapter
@@ -55,7 +55,7 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
           
           
       ###### Already used the application before
-          ```
+          ```c
             if(db.personDao().getAll().isNotEmpty()) {
               Customer.customerId = db.personDao().getAll().get(0).customerId
               Customer.customerName = db.personDao().getAll().get(0).customerName.toString()
