@@ -35,7 +35,7 @@ This project is part of our student exchange in Finland. Three of us, Youngjoon 
     
   3. StartActivity
       1. Use room library to save local database
-          ```c
+          ```
                   var db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java, "database-name"
